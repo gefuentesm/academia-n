@@ -37,8 +37,8 @@ class MyModule(http.Controller):
         # get models
         models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
         #get all models ids
-        models_ids = models.execute_kw(db,uid,password,'res.partner','search
-                                       ',[[['is_company','=',True]]])
+        models_ids = models.execute_kw(db,uid,password,'res.partner','search'
+                                       ,[[['is_company','=',True]]])
         test = models.execute_kw(db,uid,password,'res.partner', 'search_read',
                                  [[['name','ilike','esteban']]],
                                 {'fields':['name','company_id']})
