@@ -32,10 +32,11 @@ class MyModule(http.Controller):
         common.version()
         #authenticate to db
         uid = common.authenticate(db, username, password, {})
+        return uid
         # get models
-        models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
+        #models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
         #get all models ids
-        models_ids = models.execute_kw(db,uid,password,'res.partner','search',[[['is_company','=',true]]])
-        return models.execute_kw(db,uid,password,'res.partner', 'search_read',
-                                 [[['name','ilike','esteban']]],
-                                {'fields':['name','company_id']})
+        #models_ids = models.execute_kw(db,uid,password,'res.partner','search',[[['is_company','=',true]]])
+        #return models.execute_kw(db,uid,password,'res.partner', 'search_read',
+        #                         [[['name','ilike','esteban']]],
+        #                        {'fields':['name','company_id']})
