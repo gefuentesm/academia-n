@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ -*- coding: utf-8 -*-
  from odoo import http
 
 
@@ -18,5 +18,4 @@
      def object(self, obj, **kw):
          return http.request.render('my_module.object', {
              'object': obj
-#
          })
