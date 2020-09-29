@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from odoo import http
 import xmlrpc.client
+import json
+
 class MyModule(http.Controller):
     @http.route('/my_module/my_module/', auth='public')
     def index(self, **kw):    
@@ -32,7 +34,7 @@ class MyModule(http.Controller):
         common.version()
         #authenticate to db
         uid = common.authenticate(db, username, password, {})
-        return uid
+        return json.dumps(uid)
         # get models
         #models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
         #get all models ids
