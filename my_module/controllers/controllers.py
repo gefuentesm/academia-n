@@ -23,8 +23,8 @@ class MyModule(http.Controller):
     #webservice controller 
     @http.route('/webservice',type='json', methods=['POST'], auth='public')
     def find_ambassador(self,**kw):
-        id =  json.loads(http.request.params)
-        return id["result"]
+        id =  http.request.params.get('id')
+        return json.dumps(id)
         # Testing a new route with the web server
         url = 'https://academia-n2.odoo.com'
         db = 'academia-n-principal-1361278'
