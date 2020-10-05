@@ -27,8 +27,8 @@ class MyModule(http.Controller):
         # Testing a new route with the web server
         url = 'https://academia-n2.odoo.com'
         db = 'academia-n-principal-1361278'
-        username = 'estebansamuel.reyes@gmail.com'
-        password = '4c4d3m14-n2'
+        username = 'harry.lopez@academia-n.com'
+        password = '12345'
     
         #getting client version
         common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
