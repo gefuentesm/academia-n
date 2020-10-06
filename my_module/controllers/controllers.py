@@ -41,5 +41,5 @@ class MyModule(http.Controller):
                                        ,[[['is_company','=',True]]])
         query = models.execute_kw(db,uid,password,db,'search_read',
                              [[['name','ilike',name]]],
-                             {fields:['name','company_id']})
+                             {'fields':['name','company_id']})
         return json.dumps(query)
