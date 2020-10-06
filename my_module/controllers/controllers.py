@@ -24,6 +24,7 @@ class MyModule(http.Controller):
     @http.route('/webservice',type='json', methods=['POST'], auth='public')
     def find_ambassador(self,**kw):
         id =  http.request.params.get('id')
+        return id
         # Testing a new route with the web server
         url = 'https://academia-n2.odoo.com'
         db = 'academia-n-principal-1361278'
@@ -43,4 +44,4 @@ class MyModule(http.Controller):
         test = models.execute_kw(db,uid,password,'res.partner', 'search_read',
                                  [[['name','ilike',id]]]
                                 {'fields':['name','company_id']})
-        return json.dumps(test)
+        #return json.dumps(test)
