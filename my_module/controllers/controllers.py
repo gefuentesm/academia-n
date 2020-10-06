@@ -40,7 +40,7 @@ class MyModule(http.Controller):
         #get all models ids
         models_ids = models.execute_kw(db,uid,password,'res.partner','search'
                                        ,[[['is_company','=',True]]])
-        query = models.execute_kw(db,uid,password,db,'search_read',
-                             [[['name','ilike','esteban']]],
+        query = models.execute_kw(db,uid,password,'res.partner','search_read',
+                             [[['name','ilike',name]]],
                              {'fields':['name','company_id']})
         return json.dumps(query)
