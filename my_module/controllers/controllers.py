@@ -2,7 +2,7 @@
 from odoo import http
 import xmlrpc.client
 import json
-import request
+from werkzeug.wrappers import request
 
 class MyModule(http.Controller):
     @http.route('/my_module/my_module/', auth='public')
