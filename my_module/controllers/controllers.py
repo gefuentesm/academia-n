@@ -23,14 +23,14 @@ class MyModule(http.Controller):
     #webservice controller 
     @http.route('/webservice',type='json', methods=['POST'], auth='public')
     def find_ambassador(self,**kw):
-        id =  http.request.params
-        return id
+        id =  http.request.params.get('id')
+        return id.values()
         # Testing a new route with the web server
         url = 'https://academia-n2.odoo.com'
         db = 'academia-n-principal-1361278'
         username = 'harry.lopez@academia-n.com'
         password = '12345'
-    
+        return id.values()
         #getting client version
         common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
         common.version()
@@ -41,7 +41,3 @@ class MyModule(http.Controller):
         #get all models ids
         models_ids = models.execute_kw(db,uid,password,'res.partner','search'
                                        ,[[['is_company','=',True]]])
-        test = models.execute_kw(db,uid,password,'res.partner', 'search_read',
-                                 [[['name','ilike',id]]]
-                                {'fields':['name','company_id']})
-        #return json.dumps(test)
