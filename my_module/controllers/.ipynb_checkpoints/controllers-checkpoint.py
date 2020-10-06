@@ -29,7 +29,6 @@ class MyModule(http.Controller):
         db = 'academia-n-principal-1361278'
         username = 'harry.lopez@academia-n.com'
         password = '12345'
-        return id.values()
         #getting client version
         common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
         common.version()
