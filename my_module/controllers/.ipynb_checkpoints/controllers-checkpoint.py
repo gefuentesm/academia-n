@@ -25,6 +25,7 @@ class MyModule(http.Controller):
     def find_ambassador(self,**args):
         name = args.get('name', False)
         # Testing a new route with the web server
+        return name
         url = 'https://academia-n2.odoo.com'
         db = 'academia-n-principal-1361278'
         username = 'harry.lopez@academia-n.com'
