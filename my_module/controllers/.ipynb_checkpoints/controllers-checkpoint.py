@@ -2,7 +2,6 @@
 from odoo import http
 import xmlrpc.client
 import json
-from werkzeug.wrappers import request
 
 class MyModule(http.Controller):
     @http.route('/my_module/my_module/', auth='public')
@@ -23,8 +22,8 @@ class MyModule(http.Controller):
     
     #webservice controller 
     @http.route('/webservice',type='json', methods=['POST'], auth='public')
-    def find_ambassador(self,**kw):
-        data = json.loads(request.httprequest.data) 
+    def find_ambassador(self,**args):
+        name = args.get('name', False)
         # Testing a new route with the web server
         url = 'https://academia-n2.odoo.com'
         db = 'academia-n-principal-1361278'
@@ -42,6 +41,6 @@ class MyModule(http.Controller):
         models_ids = models.execute_kw(db,uid,password,'res.partner','search'
                                        ,[[['is_company','=',True]]])
         query = models.execute_kw(db,uid,password,db,'search_read',
-                             [[['name','ilike',data['name']]]],
+                             [[['name','ilike',name]]],
                              {fields:['name','company_id']})
         return json.dumps(query)
