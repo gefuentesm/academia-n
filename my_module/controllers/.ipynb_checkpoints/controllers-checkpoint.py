@@ -25,7 +25,7 @@ class MyModule(http.Controller):
     def find_ambassador(self,**args):
         name = args.get('name', False)
         # Testing a new route with the web server
-        return name
+        # return name
         url = 'https://academia-n2.odoo.com'
         db = 'academia-n-principal-1361278'
         username = 'harry.lopez@academia-n.com'
@@ -41,6 +41,6 @@ class MyModule(http.Controller):
         models_ids = models.execute_kw(db,uid,password,'res.partner','search'
                                        ,[[['is_company','=',True]]])
         query = models.execute_kw(db,uid,password,db,'search_read',
-                             [[['name','ilike',name]]],
+                             [[['name','ilike','esteban']]],
                              {'fields':['name','company_id']})
         return json.dumps(query)
