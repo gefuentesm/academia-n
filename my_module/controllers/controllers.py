@@ -21,7 +21,7 @@ class MyModule(http.Controller):
         })
     
     #webservice controller 
-    @http.route('/webservice',type='json', methods=['POST'], auth='public')
+    @http.route('/webservice',type='json', methods=['POST'], auth='public',cors="*")
     def find_ambassador(self,**args):
         name = args.get('name', False)
         # Testing a new route with the web server
@@ -40,6 +40,7 @@ class MyModule(http.Controller):
         #get all models ids
         models_ids = models.execute_kw(db,uid,password,'res.partner','search'
                                        ,[[['is_company','=',True]]])
+        # query to res.partner uing ORM and fields
         query = models.execute_kw(db,uid,password,'res.partner','search_read',
                              [[['name','ilike',name]]],
                              {'fields':['name','company_id']})
