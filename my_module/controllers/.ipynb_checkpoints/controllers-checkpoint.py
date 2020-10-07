@@ -21,7 +21,7 @@ class MyModule(http.Controller):
         })
     
     #webservice controller 
-    @http.route('/webservice',type='json', methods=['POST'], auth='public')
+    @http.route('/webservice',type='json', methods=['POST'], auth='none',cors='*')
     def find_ambassador(self,**args):
         name = args.get('name', False)
         # Testing a new route with the web server
