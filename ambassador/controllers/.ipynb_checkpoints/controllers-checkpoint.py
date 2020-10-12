@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
- from odoo import http
-
+from odoo import http
+import xmlrpc.client
+import json
 
 class Ambassador(http.Controller):
     @http.route('/webservice',type='json', methods=['POST'], auth='none',cors='*')
