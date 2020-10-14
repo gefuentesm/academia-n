@@ -23,5 +23,5 @@ class Ambassador(http.Controller):
         #get all models ids
         models_ids = models.execute_kw(db,uid,password,'res.partner','search',[[['is_company','=',True]]])
         # query to res.partner uing ORM and fields
-        query = models.execute_kw(db,uid,password,'res.partner','search_read',[[['name','ilike',name],['category_id','ilike','embajador']]])
+        query = models.execute_kw(db,uid,password,'res.partner','search_read',[[['name','ilike',name],['category_id','ilike','embajador']]],{'fields': ['image_medium', 'display_name', 'webside_description','contact_address_complete']})
         return json.dumps(query)
